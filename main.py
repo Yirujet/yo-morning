@@ -59,9 +59,9 @@ data = {
     "wind": { "value": wea["wind"] },
     "airData": { "value": wea["airData"] },
     "airQuality": { "value": wea["airQuality"] },
-    "highest": { value: math.floor(wea["high"]) },
-    "lowest": { value: math.floor(wea["low"]) },
-    "lastUpdateTime": { value: wea["lastUpdateTime"] }
+    "highest": { "value": math.floor(wea["high"]) },
+    "lowest": { "value": math.floor(wea["low"]) },
+    "lastUpdateTime": { "value": wea["lastUpdateTime"] }
 }
 res = wm.send_template(user_id, template_id, data)
 print(res)
