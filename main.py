@@ -19,9 +19,9 @@ template_id = os.environ["TEMPLATE_ID"]
 
 
 def get_weather():
-  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
+  url = "https://v0.yiketianqi.com/api?unescape=1&version=v91&appid=43656176&appsecret=I42og6Lm&ext=&cityid=&city=" + city
   res = requests.get(url).json()
-  weather = res.data.list[0]
+  weather = res.data[0]
   return weather
 
 def get_count():
@@ -54,14 +54,14 @@ data = {
     "words":{"value":get_words(), "color":get_random_color()},
     "date": { "value": wea["date"] },
     "city": { "value": city, "color":get_random_color() },
-    "temperature": { "value": math.floor(wea["temp"]) },
-    "weather": { "value": wea["weather"] },
-    "wind": { "value": wea["wind"] },
-    "airData": { "value": wea["airData"] },
-    "airQuality": { "value": wea["airQuality"] },
-    "highest": { "value": math.floor(wea["high"]) },
-    "lowest": { "value": math.floor(wea["low"]) },
-    "lastUpdateTime": { "value": wea["lastUpdateTime"] }
+    "temperature": { "value": math.floor(wea["tem"]) },
+    "weather": { "value": wea["wea"] },
+    "wind": { "value": wea["narrative"] },
+    "airData": { "value": wea["air"] },
+    "airQuality": { "value": wea["air_level"] },
+    "highest": { "value": math.floor(wea["tem1"]) },
+    "lowest": { "value": math.floor(wea["tem2"]) },
+    "lastUpdateTime": { "value": wea["day"] }
 }
 res = wm.send_template(user_id, template_id, data)
 print(res)
