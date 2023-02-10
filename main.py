@@ -19,9 +19,9 @@ template_id = os.environ["TEMPLATE_ID"]
 
 
 def get_weather():
-  url = "https://v0.yiketianqi.com/api?unescape=1&version=v91&appid=43656176&appsecret=I42og6Lm&ext=&cityid=&city=" + city
+  url = "https://v0.yiketianqi.com/api?unescape=1&version=v91&appid=89844281&appsecret=3BNMSRsq&ext=&cityid=&city=" + city
   res = requests.get(url).json()
-  weather = res[b'data'][0]
+  weather = res['data'][0]
   return weather
 
 def get_count():
@@ -38,7 +38,7 @@ def get_words():
   words = requests.get("https://api.shadiao.pro/chp")
   if words.status_code != 200:
     return get_words()
-  return words.json()[b'data']['text']
+  return words.json()['data']['text']
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
