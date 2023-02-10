@@ -54,13 +54,13 @@ data = {
     "words":{"value":get_words(), "color":get_random_color()},
     "date": { "value": wea["date"] },
     "city": { "value": city, "color":get_random_color() },
-    "temperature": { "value": math.floor(wea["tem"]) },
+    "temperature": { "value": wea["tem"] },
     "weather": { "value": wea["wea"] },
     "wind": { "value": wea["narrative"] },
     "airData": { "value": wea["air"] },
     "airQuality": { "value": wea["air_level"] },
-    "highest": { "value": math.floor(wea["tem1"]) },
-    "lowest": { "value": math.floor(wea["tem2"]) },
+    "highest": { "value": wea["tem1"] },
+    "lowest": { "value": wea["tem2"] },
     "lastUpdateTime": { "value": wea["day"] }
 }
 res = wm.send_template(user_id, template_id, data)
