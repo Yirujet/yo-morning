@@ -16,7 +16,7 @@ jobs:
         ref: main
 
     - name: sender
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v2-node16
       with:
         python-version: '3.x'
         architecture: 'x64'
