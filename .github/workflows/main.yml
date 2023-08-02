@@ -16,10 +16,11 @@ jobs:
         ref: main
 
     - name: sender
-      uses: actions/setup-python@v2-node16
+      uses: actions/setup-python@v2
       with:
         python-version: '3.x'
         architecture: 'x64'
+        node-version: '16'
     - run: pip install -r ./requirements.txt && python ./main.py
 
     env:
