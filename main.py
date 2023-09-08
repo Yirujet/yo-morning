@@ -55,7 +55,7 @@ data = {
     "date": { "value": wea["lastUpdate"] },
     "city": { "value": city, "color":get_random_color() },
     "temperature": { "value": wea["now"]["temperature"] },
-    "weather": { "value": wea["now"]["wea"] },
+    "weather": { "value": "--" },
     "wind": { "value": wea["now"]["windScale"] },
     "airData": { "value": "--" },
     "airQuality": { "value": "--" },
