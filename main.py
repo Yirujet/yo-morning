@@ -19,9 +19,9 @@ template_id = os.environ["TEMPLATE_ID"]
 
 
 def get_weather():
-  url = "https://v0.yiketianqi.com/api?unescape=1&version=v91&appid=89844281&appsecret=3BNMSRsq&ext=&cityid=&city=" + city
+  url = "https://weather.cma.cn/api/now/58238"
   res = requests.get(url).json()
-  weather = res['data'][0]
+  weather = res['data']
   return weather
 
 def get_count():
@@ -52,16 +52,16 @@ data = {
     "love_days":{"value":get_count(), "color":get_random_color()},
     "birthday_left":{"value":get_birthday(), "color":get_random_color()},
     "words":{"value":get_words(), "color":get_random_color()},
-    "date": { "value": wea["date"] },
+    "date": { "value": wea["lastUpdate"] },
     "city": { "value": city, "color":get_random_color() },
-    "temperature": { "value": wea["tem"] },
-    "weather": { "value": wea["wea"] },
-    "wind": { "value": wea["narrative"] },
-    "airData": { "value": wea["air"] },
-    "airQuality": { "value": wea["air_level"] },
-    "highest": { "value": wea["tem1"] },
-    "lowest": { "value": wea["tem2"] },
-    "lastUpdateTime": { "value": wea["day"] }
+    "temperature": { "value": wea["now"]["temperature"] },
+    "weather": { "value": wea["now"]["wea"] },
+    "wind": { "value": wea["now"]["windScale"] },
+    "airData": { "value": "--" },
+    "airQuality": { "value": "--" },
+    "highest": { "value": wea["now"]["temperature"] },
+    "lowest": { "value": wea["now"]["temperature"] },
+    "lastUpdateTime": { "value": wea["lastUpdate"] }
 }
 res = wm.send_template(user_id, template_id, data)
 print(res)
